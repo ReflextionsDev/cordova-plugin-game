@@ -257,7 +257,7 @@ public class Game extends CordovaPlugin implements GameHelper.GameHelperListener
 			//
 			final String leaderboardId = args.getString(0);				
 			Log.d(LOG_TAG, String.format("%s", leaderboardId));							
-			final int score = args.getInt(1);				
+			final long score = args.getLong(1);				
 			Log.d(LOG_TAG, String.format("%d", score));				
 
 			submitScoreCC = callbackContext;
@@ -567,7 +567,7 @@ public class Game extends CordovaPlugin implements GameHelper.GameHelperListener
 		Games.Leaderboards.loadCurrentPlayerLeaderboardScore(getGameHelper().getApiClient(), leaderboardId, LeaderboardVariant.TIME_SPAN_ALL_TIME, LeaderboardVariant.COLLECTION_PUBLIC).setResultCallback(new ResultCallbackSubmitScoreResult());
 	}
 	
-	private void _submitScore(String leaderboardId, int score){
+	private void _submitScore(String leaderboardId, long score){
 /*	
 		//https://developers.google.com/games/services/android/leaderboards
 		Games.Leaderboards.submitScore(getGameHelper().getApiClient(), leaderboardId, score);			
